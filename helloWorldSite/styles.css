@@ -1,0 +1,57 @@
+/* basic styling for the page */
+body {
+    font-family: Courier, monospace;
+    background-color: #000000;
+    color: #00FF00;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* .matrix-line {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    animation: matrixMove 1s linear forwards;
+} */
+
+/* Styling for the header */
+h1 {
+    color: #00FF00;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 48px;
+    text-shadow: 0 0 10px #00ff00;
+    animation: matrix 1.5s ease-in-out forwards;
+}
+
+/* Styling for the paragraph */
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
+    animation: matrix 1.5s ease-in-out forwards;
+}
+
+/* Flashbang Button Styles */
+#flashbangBtn {
+    background-color: #000000;
+    color: #00FF00;
+    font-size: 24px;
+    padding: 20px 40px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+#flashbangBtn:hover {
+    background-color: #333333;
+}
