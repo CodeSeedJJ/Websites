@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix CLI</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00;
+            font-family: Courier, monospace;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #terminal {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+
+        #input {
+            background-color: transparent;
+            border: none;
+            color: #00ff00;
+            font-family: inherit;
+            font-size: 1em;
+            outline: none;
+            padding: 10px;
+            width: 100%;
+        }
+        
+        .line {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal">
+        <div class="line">JayJay@site:~ Welcome to the Matrix CLI</div>
+        <div class="line">Type 'help' to see available commands.</div>
+    </div>
+    <input type="text" id="input" autocomplete="off" placeholder="JayJay >">
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const input = document.getElementById('input');
+
+        input.focus();
+
+        input.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const command = input.value.trim();
+                const commandLine = document.createElement('div');
+                commandLine.className = 'line';
+                commandLine.textContent = `JayJay > ${command}`;
+                terminal.appendChild(commandLine);
+
+                const outputLine = document.createElement('div');
+                outputLine.className = 'line';
+
+                switch (command.toLowerCase()) {
+                    case 'help':
+                        outputLine.textContent = 'Available commands are help, about, clear';
+                        break;
+                    case 'about':
+                        outputLine.textContent = "This is a simulated command-line interface on JayJay's site.";
+                        break;
+                    case 'clear':
+                        terminal.innerHTML = '';
+                        return;
+                    default:
+                    outputLine.textContent = `Command not found: ${command}`;
+
+
+                }
+
+                terminal.appendChild(outputLine);
+                terminal.scrollTop = terminal.scrollHeight;
+                input.value = '';
+            }
+        });
+
+    </script>
+</body>
+</html>
